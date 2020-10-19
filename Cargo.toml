@@ -1,0 +1,26 @@
+[workspace]
+members = [
+    "crates/holodeck-macros",
+    "crates/holodeck-viewer",
+    "crates/holodeck-client-native",
+    "crates/holodeck-client-wasm",
+    "crates/holodeck-net",
+    "crates/holodeck-server",
+    "crates/holodeck-simulation",
+    "crates/holodeck-core",
+]
+
+
+[profile.dev]
+opt-level=2
+
+
+[profile.release]
+lto = true
+debug = true
+opt-level = 3
+#debug-assertions = false
+#codegen-units = 1
+#overflow-checks = false
+#panic = 'unwind'
+#incremental = true

@@ -1,0 +1,54 @@
+[package]
+name = 'holodeck-client-wasm'
+version = '0.0.0-alpha'
+authors = ['dillon <dillon@dillonhicks.io>']
+edition = '2018'
+readme = 'README.md'
+license = 'Apache-2.0'
+repository = 'https://github.com/dillonhicks/holodeck'
+homepage =  'https://github.com/dillonhicks/holodeck'
+#documentation = 'https://docs.rs/holodeck'
+publish=false
+
+
+[lib]
+name = 'holodeck_client_wasm'
+crate-type = ['cdylib']
+
+[features]
+default = ['wee_alloc']
+
+[dependencies]
+cfg-if = "~1.0.0"
+holodeck-core = { path = '../holodeck-core' }
+holodeck-viewer = { path = '../holodeck-viewer' }
+js-sys = '~0.3.45'
+wasm-bindgen = '~0.2.68'
+wasm-bindgen-futures = '~0.4.18'
+console_error_panic_hook = '~0.1.6'
+
+[dependencies.web-sys]
+version = '~0.3'
+features = ['BinaryType', 'Blob', 'ErrorEvent', 'FileReader', 'MessageEvent', 'ProgressEvent', 'WebSocket' ]
+
+[dependencies.wee_alloc]
+version = '~0.4.5'
+optional = true
+
+#[profile.dev]
+## nuke the panic infrastructure for wasm builds as it just bloats the wasm binary
+## panic = 'abort'
+##panic = 'abort'
+##lto = true
+##opt-level = 's'
+##debug-assertions = false
+##debug = 0
+#
+#
+#[profile.release]
+## nuke the panic infrastructure for wasm builds as it just bloats the wasm binary
+#panic = 'unwind'
+#lto = true
+#opt-level = 's'
+#debug-assertions = false
+#debug = 1

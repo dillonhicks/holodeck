@@ -1,0 +1,38 @@
+[package]
+name = 'holodeck-viewer'
+version = '0.0.0-alpha'
+authors = ['dillon ']
+edition = '2018'
+readme = 'README.md'
+license = 'Apache-2.0'
+repository = 'https://github.com/dillonhicks/holodeck'
+homepage =  'https://github.com/dillonhicks/holodeck'
+publish = false
+
+
+[lib]
+name = 'holodeck_viewer'
+crate-type = ['rlib', 'cdylib']
+
+
+[features]
+default = ['ui']
+ui = ['kiss3d/conrod']
+interpolation = ['arraydeque']
+
+
+[dependencies]
+holodeck-core = {path = '../holodeck-core'}
+
+kiss3d = { git='https://github.com/sebcrozet/kiss3d.git', rev='3d3c7c1' }
+log = '^0.4'
+rand = { version = '^0.7' }
+image = '~0.22'
+
+[dependencies.arraydeque]
+version = '~0.4.5'
+optional = true
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = {version = "0.2", default-features = false, features = ["js"]}
+

@@ -1,0 +1,23 @@
+[package]
+name = "holodeck-macros"
+version = "0.0.0-alpha"
+authors = ["Dillon Hicks <dillon@dillonhicks.io>"]
+edition = "2018"
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://github.com/dillonhicks/holodeck"
+homepage =  "https://github.com/dillonhicks/holodeck"
+#documentation = "https://docs.rs/holodeck"
+
+publish = false
+
+[dependencies]
+syn = { version = "^1.0", features = ["full"] }
+quote = "^1.0"
+proc-macro2 = { version = "^1.0", features = ["span-locations"] }
+
+
+[lib]
+proc-macro = true
+path = "src/lib.rs"
+

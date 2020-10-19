@@ -1,0 +1,27 @@
+[package]
+name = "holodeck-net"
+version = "0.0.0-alpha"
+authors = ["dillon <dillon@dillonhicks.io>"]
+edition = "2018"
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://github.com/dillonhicks/holodeck"
+homepage =  "https://github.com/dillonhicks/holodeck"
+publish = false
+
+[features]
+default = []
+
+
+[dependencies]
+holodeck-core = {path = "../holodeck-core"}
+
+
+derive_more = "^0.99"
+smallvec = {version = "^1.4", features = ["serde"]}
+log = "~0.4.11"
+
+
+[dependencies.tracing]
+version = "~0.1.21"
+optional = true
